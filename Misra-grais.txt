@@ -1,0 +1,13 @@
+https://people.csail.mit.edu/rrw/6.045-2020/encalgs-mg.pdf
+
+A type of majority finding algrithm but unlike moore which finds element with >n/2 occurences. This algorithm is generalised for finding elements having occurrences
+greater than n/k. We make k-1 memory units and keep count of elements and their values.
+  1. read the stream and if element is present update the count.
+  2. If element is new and there is space , then insert and set count=1
+  3. Else if there is no space  reduce the counts of all the memory units by 1.
+  
+  
+  The algorithm claims that in the end , the memory units contain the candidates for occurence > n/k
+  
+  
+  The algorithm is really useful
