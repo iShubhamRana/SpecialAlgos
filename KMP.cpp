@@ -13,3 +13,19 @@ vector<int> prefix_function(string s) {
 	}
 	return pi;
 }
+bool kmpMatch(string s1, string s2) {
+	int n = s1.length(), m = s2.length();
+	int i = 0, j = 0;
+	vector<int> pi = prefix_function(s2);
+	while (i < n) {
+		if (s1[i] == s2[j]) {
+			j++, i++;
+			if (j == m)
+				return true;
+		} else {
+			if (j == 0)i++;
+			else j = pi[j - 1];
+		}
+	}
+	return false;
+}
