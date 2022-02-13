@@ -1,0 +1,19 @@
+https://www.baeldung.com/java-sorting-arrays-with-repeated-entries
+THe idea is pretty simple and it can give the worst case to be O(nlogn). The problem of duplicates is reduced here.
+
+My explaination:
+
+1. Array will have 4 part  lefmost contains elements equal to pivot
+2. 2 contains elements smaller
+3. 3 contains elements greater
+4. 4 conatins elements equal
+
+We do normal iteration just like quicksort from both sides and if we find a equal element then move it to end. Don't worry since elements on the left are already smaller
+it would do no harm.
+In the end we move equal elements on the left and right to the center and then we will have two arrays with smaller and greater elements.
+Recursively call them.
+
+Idea is pretty insane :)
+
+
+
