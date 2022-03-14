@@ -1,0 +1,37 @@
+Time: O(n)
+Space: O(n)
+
+Read proof of this https://leetcode.com/problems/wiggle-subsequence/discuss/84887/C%2B%2B-0ms-O(N)-dynamic-programming-solution
+
+class Solution {
+public:
+int wiggleMaxLength(vector<int>& nums) {
+	int n = nums.size();
+
+	int pos = 1, neg = 1;
+	for (int i = 1; i < n; i++) {
+		if (nums[i] == nums[i - 1])
+			continue;
+		if (nums[i] > nums[i - 1]) {
+			pos = 1 + neg;
+		} else {
+			neg = 1 + pos;
+		}
+	}
+	return max(pos, neg);
+}
+
+};
+
+/***********************************************************************GREEDY**************************************************************************/
+Time: O(n)
+Space: O(n)
+int wiggleMaxLength(vector<int>& nums) {
+	int n = size(nums), len = 1, prevDiff = 0, currDiff;
+	for(int i = 1; i < n; i++){
+		currDiff = nums[i] - nums[i - 1];
+		if((currDiff > 0 && prevDiff <= 0) || (currDiff < 0 && prevDiff >= 0))
+			len++, prevDiff = currDiff;
+	}
+	return len;
+}
